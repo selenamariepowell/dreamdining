@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dream Dining</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="./styles/style.css">
+
+   <!-- Styles -->
+   <style>
+      /* Modal Overlay */
+      .modal-overlay {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0, 0, 0, 0.5);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         z-index: 1000;
+         opacity: 0;
+         visibility: hidden;
+         transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      /* Modal Content */
+      .modal-content {
+         background: #fff;
+         padding: 20px;
+         border-radius: 8px;
+         max-width: 400px;
+         text-align: center;
+         position: relative;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Modal Header */
+      .modal-header {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-bottom: 15px;
+      }
+
+      .modal-header h2 {
+         font-size: 1.5rem;
+         margin: 0;
+      }
+
+      /* Close Button */
+      .close-btn {
+         font-size: 4.5rem;
+         color: #000;
+         cursor: pointer;
+      }
+
+      .close-btn:hover {
+         color: red;
+      }
+
+      /* Modal Body */
+      .modal-body {
+         font-size: 1rem;
+         color: #333;
+      }
+
+      .modal-body .modal-image {
+         width: 100%;
+         border-radius: 8px;
+         margin-bottom: 15px;
+      }
+
+      /* Show Modal */
+      .modal-overlay.active {
+         opacity: 1;
+         visibility: visible;
+      }
+   </style>
+
+</head>
+
+<body>
+
+   <!-- Modal Structure -->
+   <div id="restaurant-modal" class="modal-overlay">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h2>夢ダイニングの特別なお知らせ</h2>
+            <span class="close-btn" id="close-modal">&times;</span>
+         </div>
+         <div class="modal-body">
+            <img src="./images/blog-img-1.jpg" alt="Restaurant Offer" class="modal-image">
+            <p>
+               こんにちは！夢ダイニングへようこそ。<br><br>
+               今週末限定: <strong>特製和風バーガーが20%オフ！</strong><br>
+               営業時間: 午前7時から午後10時まで。<br>
+               美味しい料理と居心地の良い空間でお待ちしています。
+            </p>
+         </div>
+      </div>
+   </div>
+
+
+   <!-- header section starts     -->
+
+   <section class="header">
+
+      <a href="#" class="logo"> <i class="fas fa-utensils"></i> 夢ダイニング </a>
+
+      <nav class="navbar">
+         <a href="#home">ホーム</a>
+         <a href="#about">私たちについて</a>
+         <a href="#food">料理</a>
+         <a href="#gallery">ギャラリー</a>
+         <a href="#menu">メニュー</a>
+         <a href="#order">注文</a>
+         <a href="#blogs">ブログ</a>
+      </nav>
+
+      <div id="menu-btn" class="fas fa-bars"></div>
+
+   </section>
+
+   <!-- header section ends    -->
+
+   <!-- home section starts  -->
+
+   <section class="home" id="home">
+
+      <div class="swiper home-slider">
+
+         <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide" style="background: url(./images/jollof.jpg) no-repeat;">
+               <div class="content">
+                  <span>最高の料理</span>
+                  <h3>絶品の味わい</h3>
+                  <a href="#" class="btn">今すぐ体験</a>
+               </div>
+            </div>
+
+            <div class="swiper-slide slide" style="background: url(./images/bread.jpg) no-repeat;">
+               <div class="content">
+                  <span>最高の料理</span>
+                  <h3>心温まる朝のひととき</h3>
+                  <a href="#" class="btn">今すぐ体験</a>
+               </div>
+            </div>
+
+            <div class="swiper-slide slide" style="background: url(./images/egusi.jpg) no-repeat;">
+               <div class="content">
+                  <span>最高の料理</span>
+                  <h3>本格的な多文化キッチン</h3>
+                  <a href="#" class="btn">今すぐ体験</a>
+               </div>
+            </div>
+
+         </div>
+
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
+
+      </div>
+
+   </section>
+
+
+   <!-- home section ends -->
+   <!-- About section start -->
+
+
+   <section class="about" id="about">
+
+      <div class="image">
+         <img src="./images/about-img.png" alt="私たちについて">
+      </div>
+
+      <div class="content">
+         <h3 class="title">レストラン「夢ダイニング」へようこそ</h3>
+         <p>
+            夢ダイニングは、日本の美しい伝統である「この瞬間を大切に」という精神を大切にした現代的な多文化レストランです。私たちは世界中の味を融合させた料理で、忘れられないひとときをお届けします。ピザ、サラダ、デザートなど、どなたにも楽しんでいただける多彩なメニューをご用意しています。
+         </p>
+         <a href="#" class="btn">もっと見る</a>
+         <div class="icons-container">
+            <div class="icons">
+               <img src="./images/about-icon-1.png" alt="品質の高い料理">
+               <h3>高品質の料理</h3>
+            </div>
+            <div class="icons">
+               <img src="./images/about-icon-2.png" alt="料理とドリンク">
+               <h3>料理とドリンク</h3>
+            </div>
+            <div class="icons">
+               <img src="./images/about-icon-3.png" alt="専門シェフ">
+               <h3>熟練のシェフ</h3>
+            </div>
+         </div>
+      </div>
+
+   </section>
+
+
+
+   <!-- About section ends -->
+   <!-- food section starts -->
+
+   <section class="food" id="food">
+
+      <div class="heading">
+         <span>人気の料理</span>
+         <h3>私たちの美味しい料理</h3>
+      </div>
+
+      <div class="swiper food-slider">
+
+         <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide" data-name="food-1">
+               <img src="./images/food-img-1.png" alt="料理イメージ1">
+               <h3>マルゲリータピザ</h3>
+               <div class="price">¥5,500</div>
+            </div>
+
+            <div class="swiper-slide slide" data-name="food-2">
+               <img src="./images/food-img-2.png" alt="料理イメージ2">
+               <h3>シーザーサラダ</h3>
+               <div class="price">¥1,800</div>
+            </div>
+
+            <div class="swiper-slide slide" data-name="food-3">
+               <img src="./images/food-img-3.png" alt="料理イメージ3">
+               <h3>チョコレートフォンダン</h3>
+               <div class="price">¥2,200</div>
+            </div>
+
+            <div class="swiper-slide slide" data-name="food-4">
+               <img src="./images/food-img-4.png" alt="料理イメージ4">
+               <h3>クワトロフォルマッジ</h3>
+               <div class="price">¥6,000</div>
+            </div>
+
+            <div class="swiper-slide slide" data-name="food-5">
+               <img src="./images/food-img-5.png" alt="料理イメージ5">
+               <h3>抹茶ティラミス</h3>
+               <div class="price">¥2,500</div>
+            </div>
+
+         </div>
+
+         <div class="swiper-pagination"></div>
+
+      </div>
+
+   </section>
+
+   <!-- food section ends -->
+   <!-- food preview section starts -->
+
+
+   <section class="food-preview-container">
+
+      <div id="close-preview" class="fas fa-times"></div>
+
+      <div class="food-preview" data-target="food-1">
+         <img src="./images/food-img-1.png" alt="マルゲリータピザ">
+         <h3>マルゲリータピザ</h3>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+         </div>
+         <p>新鮮なバジル、ジューシーなトマト、モッツァレラが奏でるシンプルで贅沢なピザ。</p>
+         <div class="price">¥5,500</div>
+         <a href="#" class="btn">今すぐ購入</a>
+      </div>
+
+      <div class="food-preview" data-target="food-2">
+         <img src="./images/food-img-2.png" alt="シーザーサラダ">
+         <h3>シーザーサラダ</h3>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+         </div>
+         <p>クリーミーなドレッシングとクルトンで仕上げたクラシックなサラダ。</p>
+         <div class="price">¥1,800</div>
+         <a href="#" class="btn">今すぐ購入</a>
+      </div>
+
+      <div class="food-preview" data-target="food-3">
+         <img src="./images/food-img-3.png" alt="チョコレートフォンダン">
+         <h3>チョコレートフォンダン</h3>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+         </div>
+         <p>濃厚なチョコレートがとろける、贅沢なデザート。</p>
+         <div class="price">¥2,200</div>
+         <a href="#" class="btn">今すぐ購入</a>
+      </div>
+
+      <div class="food-preview" data-target="food-4">
+         <img src="./images/food-img-4.png" alt="クワトロフォルマッジ">
+         <h3>クワトロフォルマッジ</h3>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+         </div>
+         <p>4種類のチーズが織りなす濃厚でクリーミーなピザ。</p>
+         <div class="price">¥6,000</div>
+         <a href="#" class="btn">今すぐ購入</a>
+      </div>
+
+      <div class="food-preview" data-target="food-5">
+         <img src="./images/food-img-5.png" alt="抹茶ティラミス">
+         <h3>抹茶ティラミス</h3>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+         </div>
+         <p>日本の抹茶の風味を取り入れた、ユニークで上品なティラミス。</p>
+         <div class="price">¥2,500</div>
+         <a href="#" class="btn">今すぐ購入</a>
+      </div>
+
+   </section>
+
+
+
+   <!-- food preview section ends -->
+   <!-- Gallery section starts -->
+
+   <section class="gallery" id="gallery">
+
+      <div class="heading">
+         <span>私たちのギャラリー</span>
+         <h3>料理が語る物語</h3>
+      </div>
+
+      <div class="gallery-container">
+
+         <a href="food-galler-img-1.jpg" class="box">
+            <img src="./images/food-galler-img-1.jpg" alt="ピザの美しいプレゼンテーション">
+            <div class="icon"> <i class="fas fa-plus"></i></div>
+         </a>
+
+         <a href="food-galler-img-2.jpg" class="box">
+            <img src="./images/food-galler-img-2.jpg" alt="彩り豊かなサラダの一皿">
+            <div class="icon"> <i class="fas fa-plus"></i></div>
+         </a>
+
+         <a href="food-galler-img-3.jpg" class="box">
+            <img src="./images/food-galler-img-3.jpg" alt="デザートの芸術的な盛り付け">
+            <div class="icon"> <i class="fas fa-plus"></i></div>
+         </a>
+
+         <a href="food-galler-img-4.jpg" class="box">
+            <img src="./images/food-galler-img-4.jpg" alt="本格的な料理と美しいテーブルセッティング">
+            <div class="icon"> <i class="fas fa-plus"></i></div>
+         </a>
+
+         <a href="food-galler-img-5.jpg" class="box">
+            <img src="./images/food-galler-img-5.jpg" alt="抹茶デザートの魅力的なイメージ">
+            <div class="icon"> <i class="fas fa-plus"></i></div>
+         </a>
+
+         <a href="food-galler-img-6.jpg" class="box">
+            <img src="./images/food-galler-img-6.jpg" alt="料理人が腕を振るうシーン">
+            <div class="icon"> <i class="fas fa-plus"></i></div>
+         </a>
+
+      </div>
+
+   </section>
+
+
+   <!-- Gallery section ends -->
+   <!-- Menu section starts -->
+
+   <section class="menu" id="menu">
+
+      <div class="heading">
+         <span>私たちのメニュー</span>
+         <h3>人気の料理</h3>
+      </div>
+
+      <div class="swiper menu-slider">
+
+         <div class="swiper-wrapper">
+
+            <!-- Breakfast Section -->
+            <div class="swiper-slide slide">
+               <h3 class="title">朝食</h3>
+
+               <div class="box-container">
+                  <div class="box">
+                     <div class="info">
+                        <h3>和風モーニング</h3>
+                        <p>おにぎり、味噌汁、漬物で一日のスタートを。</p>
+                     </div>
+                     <div class="price">¥1,500</div>
+                  </div>
+                  <div class="box">
+                     <div class="info">
+                        <h3>フレンチトーストセット</h3>
+                        <p>バターとシロップで仕上げた特製フレンチトースト。</p>
+                     </div>
+                     <div class="price">¥1,800</div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Lunch Section -->
+            <div class="swiper-slide slide">
+               <h3 class="title">昼食</h3>
+
+               <div class="box-container">
+                  <div class="box">
+                     <div class="info">
+                        <h3>海鮮丼</h3>
+                        <p>新鮮な魚介類がたっぷりのった贅沢な一品。</p>
+                     </div>
+                     <div class="price">¥2,200</div>
+                  </div>
+                  <div class="box">
+                     <div class="info">
+                        <h3>鶏の照り焼き弁当</h3>
+                        <p>柔らかい鶏肉を特製照り焼きソースで。</p>
+                     </div>
+                     <div class="price">¥1,800</div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Dinner Section -->
+            <div class="swiper-slide slide">
+               <h3 class="title">夕食</h3>
+
+               <div class="box-container">
+                  <div class="box">
+                     <div class="info">
+                        <h3>神戸ビーフステーキ</h3>
+                        <p>絶品の神戸牛を丁寧に焼き上げた逸品。</p>
+                     </div>
+                     <div class="price">¥6,500</div>
+                  </div>
+                  <div class="box">
+                     <div class="info">
+                        <h3>天ぷら盛り合わせ</h3>
+                        <p>サクサクの衣と新鮮な具材の絶妙なバランス。</p>
+                     </div>
+                     <div class="price">¥2,800</div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Drinks Section -->
+            <div class="swiper-slide slide">
+               <h3 class="title">飲み物</h3>
+
+               <div class="box-container">
+                  <div class="box">
+                     <div class="info">
+                        <h3>抹茶ラテ</h3>
+                        <p>濃厚な抹茶の味わいを楽しめる一杯。</p>
+                     </div>
+                     <div class="price">¥700</div>
+                  </div>
+                  <div class="box">
+                     <div class="info">
+                        <h3>柚子ソーダ</h3>
+                        <p>爽やかな柚子の香りが広がる特製ソーダ。</p>
+                     </div>
+                     <div class="price">¥600</div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Desserts Section -->
+            <div class="swiper-slide slide">
+               <h3 class="title">デザート</h3>
+
+               <div class="box-container">
+                  <div class="box">
+                     <div class="info">
+                        <h3>抹茶パフェ</h3>
+                        <p>和と洋が融合した贅沢なデザート。</p>
+                     </div>
+                     <div class="price">¥1,200</div>
+                  </div>
+                  <div class="box">
+                     <div class="info">
+                        <h3>季節のフルーツタルト</h3>
+                        <p>旬のフルーツをふんだんに使用した一品。</p>
+                     </div>
+                     <div class="price">¥1,000</div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+
+         <div class="swiper-pagination"></div>
+
+      </div>
+
+   </section>
+
+
+
+
+
+
+
+   <!-- Menu section ends -->
+   <!-- order section starts -->
+
+   <section id="order" class="order">
+      <div class="heading">
+         <span>今すぐ注文</span>
+         <h3>迅速な宅配サービス</h3>
+      </div>
+
+      <form action="">
+         <div class="box-container">
+
+            <!-- Left Column -->
+            <div class="box">
+               <div class="inputBox">
+                  <span>お名前</span>
+                  <input type="text" placeholder="お名前を入力してください">
+               </div>
+               <div class="inputBox">
+                  <span>料理名</span>
+                  <input type="text" placeholder="ご注文の料理を入力してください">
+               </div>
+               <div class="inputBox">
+                  <span>注文詳細</span>
+                  <input type="text" placeholder="特別なリクエストを入力してください">
+               </div>
+               <div class="inputBox">
+                  <span>お届け先</span>
+                  <textarea name="" placeholder="ご住所を入力してください" id="" cols="30" rows="10"></textarea>
+               </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="box">
+               <div class="inputBox">
+                  <span>電話番号</span>
+                  <input type="number" placeholder="電話番号を入力してください">
+               </div>
+               <div class="inputBox">
+                  <span>注文数</span>
+                  <input type="number" placeholder="注文する数量を入力してください">
+               </div>
+               <div class="inputBox">
+                  <span>配達希望日時</span>
+                  <input type="datetime-local">
+               </div>
+               <div class="inputBox">
+                  <span>店舗所在地</span>
+                  <iframe class="map"
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12960.073318031903!2d139.6917064!3d35.6894875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cbae4b6e6e1%3A0xd9cb4afecd4691fa!2sTokyo%2C%20Japan!5e0!3m2!1sen!2sjp!4v1643274968903!5m2!1sen!2sjp"
+                     allowfullscreen="" loading="lazy"></iframe>
+               </div>
+            </div>
+
+         </div>
+         <input type="submit" value="注文する" class="btn">
+      </form>
+   </section>
+
+
+
+   <!-- order section ends-->
+   <!-- blog section starts-->
+
+   <section class="blogs" id="blogs">
+
+      <div class="heading">
+         <span>ブログ</span>
+         <h3>最新の投稿</h3>
+      </div>
+
+      <div class="swiper blogs-slider">
+
+         <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide">
+               <div class="image">
+                  <img src="./images/blog-img-1.jpg" alt="和風バーガー">
+                  <span>和風バーガー</span>
+               </div>
+               <div class="content">
+                  <a href="#" class="title">絶品和風バーガーの秘密</a>
+                  <p>特製ソースとジューシーなパティの和風バーガーが大人気。その魅力を詳しく解説します。</p>
+                  <a href="#" class="btn">続きを読む</a>
+               </div>
+            </div>
+
+            <div class="swiper-slide slide">
+               <div class="image">
+                  <img src="./images/blog-img-2.jpg" alt="抹茶サンドイッチ">
+                  <span>抹茶サンドイッチ</span>
+               </div>
+               <div class="content">
+                  <a href="#" class="title">ヘルシーな抹茶サンドイッチ</a>
+                  <p>抹茶風味の軽やかなサンドイッチで、健康的で満足感のある一品をご紹介します。</p>
+                  <a href="#" class="btn">続きを読む</a>
+               </div>
+            </div>
+
+            <div class="swiper-slide slide">
+               <div class="image">
+                  <img src="./images/blog-img-3.jpg" alt="唐揚げプレート">
+                  <span>唐揚げプレート</span>
+               </div>
+               <div class="content">
+                  <a href="#" class="title">サクサク唐揚げがの</a>
+                  <p>外はサクサク、中はジューシーな唐揚げをプレート料理で楽しめる秘密をご紹介。</p>
+                  <a href="#" class="btn">続きを読む</a>
+               </div>
+            </div>
+
+            <div class="swiper-slide slide">
+               <div class="image">
+                  <img src="./images/blog-img-4.jpg" alt="抹茶アイスクリーム">
+                  <span>抹茶アイスクリーム</span>
+               </div>
+               <div class="content">
+                  <a href="#" class="title">抹茶アイスクリームの</a>
+                  <p>濃厚で滑らかな自家製抹茶アイスクリームのレシピとその美味しさの秘訣をご紹介。</p>
+                  <a href="#" class="btn">続きを読む</a>
+               </div>
+            </div>
+
+            <div class="swiper-slide slide">
+               <div class="image">
+                  <img src="./images/blog-img-5.jpg" alt="照り焼きピザ">
+                  <span>照り焼きピザ</span>
+               </div>
+               <div class="content">
+                  <a href="#" class="title">特製照り焼きピザが登場！</a>
+                  <p>和風ソースとチーズが絶妙に絡み合う照り焼きピザ。新メニューとして登場です！</p>
+                  <a href="#" class="btn">続きを読む</a>
+               </div>
+            </div>
+
+            <div class="swiper-slide slide">
+               <div class="image">
+                  <img src="./images/blog-img-6.jpg" alt="和風コーヒー">
+                  <span>和風コーヒー</span>
+               </div>
+               <div class="content">
+                  <a href="#" class="title">和風コーヒーでリラックス</a>
+                  <p>香り高い和風コーヒーでゆったりとした時間をお楽しみいただけます。ぜひお試しください。</p>
+                  <a href="#" class="btn">続きを読む</a>
+               </div>
+            </div>
+
+         </div>
+
+         <div class="swiper-pagination"></div>
+
+      </div>
+
+   </section>
+
+
+
+
+
+
+
+
+
+
+
+   <!-- blog section ends-->
+   <!-- footer section starts-->
+
+
+   <section class="footer">
+
+      <div class="icons-container">
+
+         <!-- Opening Hours -->
+         <div class="icons">
+            <i class="fas fa-clock"></i>
+            <h3>営業時間</h3>
+            <p>午前7時から午後10時まで</p>
+         </div>
+
+         <!-- Contact Phone Numbers -->
+         <div class="icons">
+            <i class="fas fa-phone"></i>
+            <h3>電話</h3>
+            <p><a href="tel:+81312345678">+81 3 1234 5678</a></p>
+            <p><a href="tel:+819012345678">+81 90 1234 5678</a></p>
+         </div>
+
+
+         <!-- Address -->
+         <div class="icons">
+            <i class="fas fa-map"></i>
+            <h3>住所</h3>
+            <p>東京都渋谷区道玄坂1-2-3</p>
+         </div>
+
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="share">
+         <a href="#" target="_blank" class="fab fa-facebook-f" aria-label="Facebook"></a>
+         <a href="#" target="_blank" class="fab fa-twitter" aria-label="Twitter"></a>
+         <a href="#" target="_blank" class="fab fa-instagram" aria-label="Instagram"></a>
+         <a href="#" target="_blank" class="fab fa-linkedin" aria-label="LinkedIn"></a>
+      </div>
+
+   </section>
+
+
+
+
+   <!-- footer section ends-->
+
+
+
+
+
+
+   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+
+   <!-- custom js file link  -->
+   <script src="./js/script.js"></script>
+
+   <script>
+      lightGallery(document.querySelector('.gallery .gallery-container'));
+   </script>
+
+
+
+   <script>
+      // Modal Logic
+      document.addEventListener('DOMContentLoaded', () => {
+         const modal = document.getElementById('restaurant-modal');
+
+         // Show modal on page load
+         setTimeout(() => modal.classList.add('active'), 500); // Add a slight delay for animation
+
+         // Close modal when clicking anywhere
+         modal.addEventListener('click', () => {
+            modal.classList.remove('active');
+         });
+      });
+
+
+   </script>
+
+</body>
+
+</html>
